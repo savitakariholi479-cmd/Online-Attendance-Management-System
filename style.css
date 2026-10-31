@@ -1,0 +1,84 @@
+/* Custom styles for SmartAttend */
+
+/* Scanner Laser Line */
+.scanner-laser {
+    position: absolute;
+    width: 80%;
+    height: 3px;
+    background: linear-gradient(90deg, rgba(59, 130, 246, 0) 0%, #3b82f6 50%, rgba(59, 130, 246, 0) 100%);
+    box-shadow: 0 0 15px #3b82f6, 0 0 30px #60a5fa;
+    top: 15%;
+    left: 10%;
+    border-radius: 50%;
+    pointer-events-none;
+    animation: laserScan 2.2s ease-in-out infinite alternate;
+    z-index: 10;
+}
+
+@keyframes laserScan {
+    0% {
+        top: 15%;
+        opacity: 0.8;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        top: 82%;
+        opacity: 0.8;
+    }
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+::-webkit-scrollbar-track {
+    background: #f1f5f9;
+}
+::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+}
+
+/* Card hover soft shadows */
+.interactive-card {
+    transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.interactive-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+}
+
+/* Pulse animation for live scanning badge */
+@keyframes softPulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.05);
+        opacity: 0.9;
+    }
+}
+.live-pulse {
+    animation: softPulse 2s infinite ease-in-out;
+}
+
+/* html5-qrcode camera styling override */
+#qrReader {
+    border: none !important;
+}
+#qrReader video {
+    object-fit: cover !important;
+    border-radius: 1rem !important;
+    width: 100% !important;
+    height: 100% !important;
+}
+#qrReader__scan_region {
+    background: transparent !important;
+}
